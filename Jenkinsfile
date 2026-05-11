@@ -16,6 +16,11 @@ pipeline {
                 sh 'mvn test -Dmaven.test.failure.ignore=true'
             }
         }
+        stage('Install') {
+            steps {
+                sh 'mvn install -DskipTests'
+            }
+        }
         stage('PMD') {
             steps {
                 sh 'mvn pmd:pmd'
